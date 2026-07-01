@@ -115,7 +115,9 @@ recognizer = sr.Recognizer()
 microphone = sr.Microphone(sample_rate=16000)
 
 with microphone as source:
-    recognizer.adjust_for_ambient_noise(source, duration=2)
+    print("Adjusting for background noise")
+    recognizer.adjust_for_ambient_noise(source, duration=7)
+    print("Completed adjusting for background noise")
 
 print("Start speaking into your microphone. Press Ctrl+C to stop.\n")
 
@@ -144,7 +146,7 @@ def audio_callback(recognizer, audio):
 stop_listening = recognizer.listen_in_background(
     microphone,
     audio_callback,
-    phrase_time_limit=4
+    phrase_time_limit=3
 )
 
 try:
