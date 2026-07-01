@@ -119,7 +119,7 @@ with microphone as source:
 
 print("Start speaking into your microphone. Press Ctrl+C to stop.\n")
 
-def audio_callback(audio):
+def audio_callback(recognizer, audio):
     try:
         wav_data = io.BytesIO(audio.get_wav_data())
 
